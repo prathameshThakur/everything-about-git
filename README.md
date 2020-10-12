@@ -1,37 +1,25 @@
-## Welcome to GitHub Pages
+# WHAT IS VERSION CONTROL ???
 
-You can use the [editor on GitHub](https://github.com/prathameshThakur/everything-about-git/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+ You might already know a bit about version control, So a Version Control System is just software that lets you manage and keep track of your source code history.         A version control system, or, VCS tracks the history of changes as people and teams collaborate on projects together.
+ ## Developers can review project history to find out :
+Which changes were made?  
+Who made the changes?  
+When were the changes made?  
+Why were changes needed?
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### There are many types of version control ,but the three most popular VCS are :
++ GIT 
++ SUBVERSION
++ MERCURIAL
 
-### Markdown
+### The two main types of version control system are :
++ __Centralized Version Control System:__   
+With centralized version control systems, you have a single “central” copy of your project on a server, but you never have a full copy of your project locally.  
++ __Distributed Version Control System :__  
+In distributed version control, each user has their own copy of the entire repository, not just the files but the history as well. 
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+ We will be talking about __GIT__ which is __distributed version control system__
 
-```markdown
-Syntax highlighted code block
+### ***Wrap-up--***
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/prathameshThakur/everything-about-git/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+Remember that the main point of a version control system is to help you maintain a detailed history of the project as well as the ability to work on different versions of it. Having a detailed history of a project is important because it lets you see the progress of the project over time. If needed, you can also jump back to any point in the project to recover data or file.
