@@ -1,6 +1,6 @@
 # WHAT IS VERSION CONTROL ???
 
- You might already know a bit about version control, So a Version Control System is just software that lets you manage and keep track of your source code history.         A version control system, or, VCS tracks the history of changes as people and teams collaborate on projects together.
+ You might already know a bit about version control, So a Version Control System is just software that lets you manage and keep track of your source code history.         A version control system, or VCS tracks the history of changes as people and teams collaborate on projects together.
  ## Developers can review project history to find out :
 Which changes were made?  
 Who made the changes?  
