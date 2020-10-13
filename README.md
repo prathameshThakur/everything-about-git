@@ -51,3 +51,12 @@ In Git, the term checkout is used for the act of switching between different ver
 
 **SHA**  
 A SHA is basically an ID number for each commit. Here's what a commit's SHA might look like: `e2adf8ae3e2e4ed40add75cc44cf9d0a869afeb6` It is a 40-character string composed of characters (0–9 and a–f) and calculated based on the contents of a file or directory structure in Git. "SHA" is shorthand for "Secure Hash Algorithm".
+
+# Installing Git  
+To download Git:
+
++ Go to https://git-scm.com/downloads
++ Download the software for yor operating system!
++ Install Git choosing all of the default options    
+
+Once everything is installed, you should be able to run git on the command line. If it displays the usage information, then you're good to go!
