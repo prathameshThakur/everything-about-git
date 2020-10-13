@@ -60,3 +60,38 @@ To download Git:
 + Install Git choosing all of the default options    
 
 Once everything is installed, you should be able to run git on the command line. If it displays the usage information, then you're good to go!
+
+
+**First Time Git Configuration**  
+Beforeyou can start using Git, you need to configure it. Run each of the following lines on the command line to make sure everything is set up.
+```
+# sets up Git with your name
+ git config --global user.name "<Your-Full-Name>"
+
+# sets up Git with your email
+ git config --global user.email "<your-email-address>"
+
+# makes sure that Git output is colored
+ git config --global color.ui auto
+
+# displays the original state in a conflict
+ git config --global merge.conflictstyle diff3
+
+ git config --list
+```
+**Git & Code Editor**   
+The last step of configuration is to get Git working with your code editor. Below are three of the most popular code editors.
+
+**Atom Editor Setup**   
+```
+git config --global core.editor "atom --wait"
+```
+**Sublime Text Setup**   
+```
+git config --global core.editor"'C:/Program Files/Sublime Text 2/sublime_text.exe' -n -w"
+```
+
+**VSCode Setup**   
+```
+git config --global core.editor "code --wait"
+```
