@@ -95,3 +95,26 @@ git config --global core.editor"'C:/Program Files/Sublime Text 2/sublime_text.ex
 ```
 git config --global core.editor "code --wait"
 ```
+
+# Create A Git Repo From Scratch
+Before you can make commits or do anything else with a git repository, the repository needs to actually exist. To create a new repository with Git, we'll use the `git init` command.      
+The `init` subcommand is short for "initialize", which is helpful because it's the command that will do all of the initial setup of a repository.
+
+*Required Commands* 
++ `ls` - used to list files and directories
++ `mkdir` - used to create a new directory
++ `cd` - used to change directories
++ `rm` - used to remove files and directories
++ `pwd`- print working directory
+
+**Git Init**       
+ Use the git init command to create a new, empty repository in the current directory.
+```
+$ git init
+```  
+
+This will create a hidden `.git` folder inside your current folder — this is the repository where git stores all of its internal tracking data. It holds all of the configuration files and directories and is where all of the commits are stored.     
+
+ Any changes you make to any files within the original folder will now be possible to track. The original folder is now referred to as your working directory.
+                                                
+*WARNING* : Don't directly edit any files inside the .git directory. This is the heart of the repository. If you change file names and/or file content, git will probably lose track of the files that you're keeping in the repo, and you could lose a lot of work! It's okay to look at those files though, but don't edit or delete them.
