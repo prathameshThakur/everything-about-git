@@ -318,4 +318,43 @@ Globbing lets you use special characters to match patterns/characters. In the .g
   + a/z
   + a/b/z
   + a/b/c/z               
+          
+#  Undoing Changes
 
+ _**Changing The Last Commit**_ 
+
+  If your Working Directory is clean (meaning there aren't any uncommitted changes in the repository), then running `git commit --amend` will let you provide a new commit message. Your code editor will open up and display the original commit message. Just fix a misspelling or completely reword it! Then save it and close the editor to lock in the new commit message.   
+  But, amending does not just alter the most recent commit, it replaces it entirely, meaning the amended commit will be a new entity with its own ref.
+  ```
+  $ git commit --amend
+  ```
+  then you'd save all of the files that were modified, then you'd use git add to stage all of the modified files (just as if you were going to make a new commit!) ,  but then you'd  run ` git commit --amend ` to update the most-recent commit instead of creating a new  one.
+
+_**Git Revert**_       
+
+The git revert command is used to reverse a previously made commit:
+```
+$ git revert <SHA-of-commit-to-revert>
+```
+this will pop open code editor to edit/accept the provided commit message.
+This command:
+
++ will undo the changes that were made by the provided commit  
++ creates a new commit to record the change
+
+_**Git Reset**_         
+The  `git reset `command is used erase commits:
+```
+$ git reset <reference-to-commit>
+```
+It can be used to:
+
++ move the HEAD and current branch pointer to the referenced commit  
++ erase commits with the `--hard ` flag
++ move committed changes to the staging index with `--soft` flag        
++ unstage committed changes with `--mixed ` flag
+
+Typically, ancestry references are used to indicate previous commits. The ancestry references are:   
+
++ `^ ` – indicates the parent commit       
++ `~ ` – indicates the first parent commit
