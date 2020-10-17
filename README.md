@@ -237,4 +237,124 @@ This command displays :
 + the author       
 + the date      
 + the commit message      
-+ the patch information   
++ the patch information
+
+# Add Commits To Repo                 
+
+***Git Add***     
+The git add command is used to move files from the Working Directory to the Staging Index.
+```
+$ git add <file1> <file2> … <fileN>
+```
+Running the` git add` command produces no output ___as long as there wasn't an error___. So how do we have Git tell us what it did and has happened to the  file that was added? That's what `git status `does. 
+
+This command:   
+
++ Takes a space-separated list of file names    
++ Alternatively, the period` (.) `can be used in place of a list of files to tell Git to add the current directory (and all nested files)
+
+***Git Commit***          
+To make a commit in Git you use the git commit command, but don't run it just yet...go back to the Git configuration step and configure Git to use your chosen editor.   
+
+If you did configure your editor, then go ahead and make a commit using the `git commit` command. Remember, your editor should pop open.
+```
+$ git commit
+```
+This command:
+
+
+
++ Takes files from the  _Staging Index_  and saves them in the _repository_.
++ Will open the code editor that is specified in your configuration
+
+Inside the code editor:
+
++ A commit message must be supplied  
++ Lines that start with a # are comments and will not be recorded   
++ Save the file after adding a commit message   
++ Close the editor to make the commit  
+
+*Bypass The Editor With The -m Flag*   
+
+If the commit message you're writing is short and you don't want to wait for your code editor to open up to type it out, you can pass your message directly on the command line with the -m flag:
+```
+$ git commit -m "Initial commit" 
+```
+Be aware that you can't provide a description for the commit, only the message part.
+
+Then, use  `git log`  to review the commit you just made
+
+***Good Commit Messages***         
++ do keep the message short (less than 60-ish characters)    
++ do explain what the commit does (not how or why!)
++ do not explain why the changes are made (more on this below)      
++ do not explain how the changes are made (that's what git log -p is for!)  
++ do not use the word "and"     
++ if you have to use "and", your commit message is probably doing too many changes - break the changes into separate commits.
+
+***Git Diff***   
+The git diff command can be used to see changes that have been made but haven't been committed, yet.
+```
+$ git diff
+```
+This command displays:
+
++ the files that have been modified  
++ the location of the lines that have been added/removed   
++ the actual changes that have been made
+
+***Git Ignore***    
+
+If you want to keep a file in your project's directory structure but make sure it isn't accidentally committed to the project, you can use the specially named file, `.gitignore` this file is used to tell Git about the files that Git should not track. This file should be placed in the same directory that the `.git` directory is in.
+
+Globbing lets you use special characters to match patterns/characters. In the .gitignore file, you can use the following:
+
++ blank lines can be used for spacing  
++ `#`- marks line as a comment   
++ `*`- matches 0 or more characters   
++ `?`- matches 1 character   
++ [`abc`] - matches a, b, _or_ c   
++ `**` - matches nested directories - a/**/z matches   
+  + a/z
+  + a/b/z
+  + a/b/c/z               
+          
+#  Undoing Changes
+
+ _**Changing The Last Commit**_ 
+
+  If your Working Directory is clean (meaning there aren't any uncommitted changes in the repository), then running `git commit --amend` will let you provide a new commit message. Your code editor will open up and display the original commit message. Just fix a misspelling or completely reword it! Then save it and close the editor to lock in the new commit message.   
+  But, amending does not just alter the most recent commit, it replaces it entirely, meaning the amended commit will be a new entity with its own ref.
+  ```
+  $ git commit --amend
+  ```
+  then you'd save all of the files that were modified, then you'd use git add to stage all of the modified files (just as if you were going to make a new commit!) ,  but then you'd  run ` git commit --amend ` to update the most-recent commit instead of creating a new  one.
+
+_**Git Revert**_       
+
+The git revert command is used to reverse a previously made commit:
+```
+$ git revert <SHA-of-commit-to-revert>
+```
+this will pop open code editor to edit/accept the provided commit message.
+This command:
+
++ will undo the changes that were made by the provided commit  
++ creates a new commit to record the change
+
+_**Git Reset**_         
+The  `git reset `command is used erase commits:
+```
+$ git reset <reference-to-commit>
+```
+It can be used to:
+
++ move the HEAD and current branch pointer to the referenced commit  
++ erase commits with the `--hard ` flag
++ move committed changes to the staging index with `--soft` flag        
++ unstage committed changes with `--mixed ` flag
+
+Typically, ancestry references are used to indicate previous commits. The ancestry references are:   
+
++ `^ ` – indicates the parent commit       
++ `~ ` – indicates the first parent commit
