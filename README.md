@@ -237,4 +237,85 @@ This command displays :
 + the author       
 + the date      
 + the commit message      
-+ the patch information   
++ the patch information
+
+# Add Commits To Repo                 
+
+***Git Add***     
+The git add command is used to move files from the Working Directory to the Staging Index.
+```
+$ git add <file1> <file2> … <fileN>
+```
+Running the` git add` command produces no output ___as long as there wasn't an error___. So how do we have Git tell us what it did and has happened to the  file that was added? That's what `git status `does. 
+
+This command:   
+
++ Takes a space-separated list of file names    
++ Alternatively, the period` (.) `can be used in place of a list of files to tell Git to add the current directory (and all nested files)
+
+***Git Commit***          
+To make a commit in Git you use the git commit command, but don't run it just yet...go back to the Git configuration step and configure Git to use your chosen editor.   
+
+If you did configure your editor, then go ahead and make a commit using the `git commit` command. Remember, your editor should pop open.
+```
+$ git commit
+```
+This command:
+
+
+
++ Takes files from the  _Staging Index_  and saves them in the _repository_.
++ Will open the code editor that is specified in your configuration
+
+Inside the code editor:
+
++ A commit message must be supplied  
++ Lines that start with a # are comments and will not be recorded   
++ Save the file after adding a commit message   
++ Close the editor to make the commit  
+
+*Bypass The Editor With The -m Flag*   
+
+If the commit message you're writing is short and you don't want to wait for your code editor to open up to type it out, you can pass your message directly on the command line with the -m flag:
+```
+$ git commit -m "Initial commit" 
+```
+Be aware that you can't provide a description for the commit, only the message part.
+
+Then, use  `git log`  to review the commit you just made
+
+***Good Commit Messages***         
++ do keep the message short (less than 60-ish characters)    
++ do explain what the commit does (not how or why!)
++ do not explain why the changes are made (more on this below)      
++ do not explain how the changes are made (that's what git log -p is for!)  
++ do not use the word "and"     
++ if you have to use "and", your commit message is probably doing too many changes - break the changes into separate commits.
+
+***Git Diff***   
+The git diff command can be used to see changes that have been made but haven't been committed, yet.
+```
+$ git diff
+```
+This command displays:
+
++ the files that have been modified  
++ the location of the lines that have been added/removed   
++ the actual changes that have been made
+
+***Git Ignore***    
+
+If you want to keep a file in your project's directory structure but make sure it isn't accidentally committed to the project, you can use the specially named file, `.gitignore` this file is used to tell Git about the files that Git should not track. This file should be placed in the same directory that the `.git` directory is in.
+
+Globbing lets you use special characters to match patterns/characters. In the .gitignore file, you can use the following:
+
++ blank lines can be used for spacing  
++ `#`- marks line as a comment   
++ `*`- matches 0 or more characters   
++ `?`- matches 1 character   
++ [`abc`] - matches a, b, _or_ c   
++ `**` - matches nested directories - a/**/z matches   
+  + a/z
+  + a/b/z
+  + a/b/c/z               
+
