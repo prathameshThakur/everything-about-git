@@ -358,3 +358,125 @@ Typically, ancestry references are used to indicate previous commits. The ancest
 
 + `^ ` – indicates the parent commit       
 + `~ ` – indicates the first parent commit
+
+# Tagging ,Branching & Mearging
+
+## Git Tag Command
+
+The command we'll be using to interact with the repository's tags is the git tag command:
+```
+$ git tag -a <keyid>
+```
+This will open your code editor and wait for you to supply a message for the tag.
+In the command above the` -a`  flag is used. This flag tells Git to create an annotated flag.
+
+Annotated tags are recommended because they include a lot of extra information such as:
+
++ the person who made the tag        
++ the date the tag was made    
++ a message for the tag     
+
+
+_Verify Tag_
+After saving and quitting the editor, nothing is displayed on the command line so just type `git tag` , it will display all tags that are in the repository.
+
+___Deleting A Tag___
+
+A Git tag can be deleted with the -d flag (for delete!) and the name of the tag:
+```
+$ git tag -d <keyid>
+```
+___Adding A Tag To A Past Commit___      
+
+What if you wanted to tag a commit that occurred farther back in the repo's history?   
+All you have to do is provide the SHA of the commit you want to tag!
+```
+$ git tag -a <keyid> <SHA>
+```
+
+## Git Branch       
+The git branch command is used to interact with Git's branches:
+```
+$ git branch
+```
+___Create A Branch___
+
+To create a branch, all you have to do is use git branch and provide it the name of the branch you want it to create, you'd run this command:
+```
+$ git branch <branch-name>
+```
+___git checkout___ 
+
+Even though we created the new <branch-name>, no new commits will be added to it since we haven't switched to it, yet. If we made a commit right now, that commit would be added to the master branch. 
+
+
+To switch between branches, we need to use Git's checkout command.
+```
+$ git checkout <branch-name>
+```
+___Branches In The Log___        
+The branch information in the command prompt is helpful, but the clearest way to see it is by looking at the output of git log. But just like we had to use the --decorate flag to display Git tags, we need it to display branches.
+```
+$ git log --oneline --decorate
+```
+___Delete A Branch___
+
+ If you want to delete the branch, you'd use the `-d `flag. The command below includes the `-d` flag which tells Git to delete the provided branch.
+```
+$ git branch -d <branch-name>
+```
+One thing to note is that you can't delete a branch that you're currently on,you'd have to switch.
+To force deletion, you need to use a capital `D` flag .
+```
+git branch -D <branch-name
+```
+
+___See All Branches At Once___
+
+Wouldn't it be nice if we could see all branches at once in the git log output
+```
+$ git log --oneline --graph --all
+```
+The `--graph` flag adds the bullets and lines to the leftmost part of the output. This shows the actual branching that's happening. The `--all `flag is what displays all of the branches in the repository.
+
+
+
+## The Merge Command     
+The git merge command is used to combine Git branches:
+```
+$ git merge <other-branch>
+```
+There are two types of merges:
+
++ Fast-forward merge – the branch being merged in must be ahead of the checked out branch. The checked out branch's pointer will just be moved forward to point to the same commit as the other branch.
++ the regular type of merge   
+  + two divergent branches are combined                    
+  + a merge commit is create
+
+___Merge Conflict___   
+When a merge fails, it is called a merge conflict.
+
+A merge conflict happens when the same line or lines have been changed on different branches that are being merged. Git will pause mid-merge telling you that there is a conflict and will tell you in what file or files the conflict occurred. 
+
+___Merge Conflict Indicators Explanation___ 
+
+The editor has the following merge conflict indicators:
+
++ `<<<<<<<` HEAD everything below this line (until the next   indicator) shows you what's on the current branch  
+
++ `|||||||` merged common ancestors everything below this line (until the next indicator) shows you what the original lines were   
+
++ `=======` is the end of the original lines, everything that follows (until the next indicator) is what's on the branch that's being merged in   
+
++ `>>>>>>>` heading-update is the ending indicator of what's on the branch that's being merged in (in this case, the heading-update branch) 
+
+
+To resolve the conflict in a file:
+
++ locate and remove all lines with merge conflict             + indicators   
++ determine what to keep   
++ save the file(s)    
++ stage the file(s)    
++ make a commit   
+
+Be careful that a file might have merge conflicts in multiple parts of the file, so make sure you check the entire file for merge conflict indicators - a quick search for` <<<` should help you locate all of them.
