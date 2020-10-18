@@ -359,7 +359,7 @@ Typically, ancestry references are used to indicate previous commits. The ancest
 + `^ ` – indicates the parent commit       
 + `~ ` – indicates the first parent commit
 
-# Tagging ,Branching & Mearging
+# Tagging ,Branching & Merging
 
 ## Git Tag Command
 
